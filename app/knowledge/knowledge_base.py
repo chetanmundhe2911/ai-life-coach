@@ -97,20 +97,9 @@ class KnowledgeBase:
         domain: Optional[str] = None,
         summarize: bool = False
     ) -> str:
-        """
-        Main method: get relevant context for a question.
-        
-        Args:
-            question: The user's input or question
-            domain: Optional domain filter (e.g., "health", "career")
-            summarize: If True, summarize long context (saves tokens)
-        
-        Returns:
-            Formatted context string, or "" if nothing relevant found
-        """
         context = self.helper.get_context(
             query=question,
-            domain_filter=domain
+            domain_filter=None      # ← change domain_filter=domain to None
         )
         
         if summarize and context:

@@ -40,7 +40,7 @@ class RAGHelper:
         self,
         query: str,
         k: Optional[int] = None,
-        min_score: float = 0.3,
+        min_score: float = 0.1,
         domain_filter: Optional[str] = None
     ) -> str:
         """

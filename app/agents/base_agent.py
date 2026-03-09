@@ -82,38 +82,19 @@ class BaseAgent(ABC):
     # ── Core Method (the main entry point) ───────────────────────
 
     def respond(self, user_input: str) -> str:
-        """
-        Generate a response to the user's input.
-        
-        This is called by the orchestrator after routing to this agent.
-        
-        FLOW:
-        1. Retrieve relevant context from knowledge base
-        2. Build system prompt with context + user profile
-        3. Get conversation history from session state
-        4. Call GPT-4
-        5. Save response to session state
-        6. Return response text
-        """
-        # Step 1: Retrieve relevant context
         context = self.kb.query(
             question=user_input,
             domain=self.domain
         )
-
-        # Step 2: Build system prompt
+        
+        # ADD THIS LINE temporarily
+        print(f"   📄 Context passed to GPT: {repr(context[:200]) if context else 'EMPTY'}")
+        
         user_profile = self.state.get_user_profile_text()
         system_prompt = self.get_system_prompt(context, user_profile)
-
-        # Step 3: Get full message history for the API call
         messages = self.state.get_messages_for_api(system_prompt)
-
-        # Step 4: Call GPT-4
         response_text = self._call_llm(messages)
-
-        # Step 5: Save to session state (so future turns remember this)
         self.state.add_assistant_message(response_text, agent=self.domain)
-
         return response_text
 
     # ── Internal Methods ──────────────────────────────────────────
