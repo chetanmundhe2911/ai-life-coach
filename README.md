@@ -4,6 +4,9 @@ A production-ready, learning-friendly AI agent that acts as your **personal life
 It understands YOU across 12 life domains (health, career, values, relationships, etc.)
 and gives personalized advice using RAG (Retrieval-Augmented Generation).
 
+## 🎬 Demo
+![Aria Life Coach Demo](aria_demo.gif)
+
 ---
 
 ## 🏗️ Architecture Overview
