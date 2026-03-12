@@ -165,7 +165,7 @@ def main():
     kb = KnowledgeBase.get_instance()
 
     # ── Step 4: Create Session State ──────────────────────────────
-    # Fresh conversation memory for this session
+    # Fresh conversation memory for this session...
     state = SessionState()
 
     # ── Step 5: Create Orchestrator ───────────────────────────────
