@@ -150,7 +150,7 @@ def main():
     Main application entry point.
     Initializes all components and runs the chat loop.
     """
-    # ── Step 1: Validate Configuration ────────────────────────────
+    # ── Step 1: Validate Configuration ────────────────────────────......
     try:
         validate_settings()
     except ValueError:
